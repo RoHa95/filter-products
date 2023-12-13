@@ -1,0 +1,74 @@
+
+{
+  "items":[
+      {
+        "id":1,
+        "title":"machin",
+        "class": "lavazem khane",
+        "price":10.99,
+        "image":"./assets/images/a1.jpg"
+      },
+      {
+        "id":2,
+        "title":"jaroo",
+        "class": "lavazem khane",
+        "price":25.99,
+        "image":"./assets/images/a2.jpg"
+      },
+      {
+        "id":3,
+        "title":"farsh",
+        "class": "lavazem khane",
+        "price":18.59,
+        "image":"./assets/images/a3.png"
+      },
+      {
+        "id":4,
+        "title":"miz",
+        "class": "lavazem khane",
+        "price":21.99,
+        "image":"./assets/images/a4.jpg"
+      },
+      {
+        "id":5,
+        "title":"ketab",
+        "class": "lavazem tahrir",
+        "price":1.99,
+        "image":"./assets/images/a1.jpg"
+      },
+      {
+        "id":6,
+        "title":"goldan",
+        "class": "decori",
+        "price":45.99,
+        "image":"./assets/images/a2.jpg"
+      },
+      {
+        "id":7,
+        "title":"ayne",
+        "class": "decory",
+        "price":17.99,
+        "image":"./assets/images/a3.png"
+      },
+      {
+        "id":8,
+        "title":"kafsh",
+        "class": "poshak",
+        "price":5.99,
+        "image":"./assets/images/a4.jpg"
+      },
+      {
+        "id":9,
+        "title":"lebas",
+        "class": "poshak",
+        "price":22.99,
+        "image":"./assets/images/a1.jpg"
+      },
+      {
+        "id":10,
+        "title":"daftar",
+        "class": "lavazem tahrir",
+        "price":11.99,
+        "image":"./assets/images/a2.jpg"
+        }]
+}
