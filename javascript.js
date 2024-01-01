@@ -1,7 +1,8 @@
 const searchInput = document.querySelector("#search");
 const productsDom = document.querySelector(".products-center");
-const btns = document.querySelectorAll(".btn");
+
 let allProductsData = [];
+let category = [];
 const filters = {
   searchItem: "",
 };
@@ -12,7 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => {
       console.log(res.data);
       allProductsData = res.data;
+      category = allProductsData.map((p) => p.category);
+
       //render
+      renderCategoryBtns(category);
+      console.log(category);
       renderProducts(res.data, filters);
     })
     .catch((err) => console.log(err));
@@ -68,15 +73,25 @@ function renderProductsCategory(_products, _filters) {
     productsDom.appendChild(productDiv);
   });
 }
+function renderCategoryBtns(category) {
+  const searchbox = document.querySelector(".filter-box");
+  const singleCategory = [...new Set(category)];
+  let result = `<a href="#" class="btn" data-filter="">All</a>`;
+  singleCategory.forEach((c) => {
+    result += `<a href="#" class="btn" data-filter=${c}>${c}</a>`;
+  });
+  searchbox.innerHTML = result;
+  const btns = document.querySelectorAll(".btn");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      console.log(e.target.dataset.filter);
+      filters.searchItem = e.target.dataset.filter;
+      renderProductsCategory(allProductsData, filters);
+    });
+  });
+}
 searchInput.addEventListener("input", (e) => {
   console.log(e.target.value);
   filters.searchItem = e.target.value;
   renderProducts(allProductsData, filters);
-});
-btns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    console.log(e.target.dataset.filter);
-    filters.searchItem = e.target.dataset.filter;
-    renderProductsCategory(allProductsData, filters);
-  });
 });
