@@ -68,7 +68,10 @@ function renderProductsCategory(_products, _filters) {
     </div>
     <div class="product-description">
       <p class="product-price">${item.price} $</p>
-      <p class="product-title">${item.title}</p>
+      <p class="product-title">${item.title
+        .split(" ")
+        .slice(0, 3)
+        .join(" ")}</p>
     </div>`;
     productsDom.appendChild(productDiv);
   });
