@@ -8,7 +8,7 @@ const filters = {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("loaded...");
   axios
-    .get("http://localhost:3000/items")
+    .get("https://fakestoreapi.com/products")
     .then((res) => {
       console.log(res.data);
       allProductsData = res.data;
@@ -17,12 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.log(err));
 });
+
 function renderProducts(_products, _filters) {
   const filteredProducts = _products.filter((p) => {
     return p.title.toLowerCase().includes(_filters.searchItem.toLowerCase());
   });
+
   productsDom.innerHTML = " ";
   console.log(filteredProducts);
+
   // render to dom
   filteredProducts.forEach((item, index) => {
     //create
@@ -36,14 +39,14 @@ function renderProducts(_products, _filters) {
   </div>
   <div class="product-description">
     <p class="product-price">${item.price} $</p>
-    <p class="product-title">${item.title}</p>
+    <p class="product-title">${item.title.split(" ").slice(0, 3).join(" ")}</p>
   </div>`;
     productsDom.appendChild(productDiv);
   });
 }
 function renderProductsCategory(_products, _filters) {
   const filteredProducts = _products.filter((p) => {
-    return p.class.toLowerCase().includes(_filters.searchItem.toLowerCase());
+    return p.category.toLowerCase().includes(_filters.searchItem.toLowerCase());
   });
   productsDom.innerHTML = " ";
   console.log(filteredProducts);
